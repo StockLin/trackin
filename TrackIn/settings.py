@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'trackin_db',
         'USER': 'trackin',
         'PASSWORD': 'trackinnkust',
-        'HOST': '163.18.18.174',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
