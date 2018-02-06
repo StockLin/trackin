@@ -56,7 +56,7 @@ ROOT_URLCONF = 'TrackIn.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'trackin_db',
         'USER': 'trackin',
         'PASSWORD': 'trackinnkust',
-        'HOST': 'localhost',
+        'HOST': '163.18.18.174',
         'PORT': '',
     }
 }
