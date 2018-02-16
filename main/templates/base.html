@@ -8,25 +8,25 @@
     <!-- title配置 -->
     <title>{% block title %}{% endblock %}</title>
     <!-- import bootstrap css files -->
-    <link rel="stylesheet" href="{% static 'bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="{% static 'bootstrap-4.0.0-beta.2-dist/css/bootstrap-grid.min.css'%}">
-    <link rel="stylesheet" href="{% static 'bootstrap-4.0.0-beta.2-dist/css/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'main/bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'main/bootstrap-4.0.0-beta.2-dist/css/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'main/bootstrap-4.0.0-beta.2-dist/css/bootstrap-reboot.min.css'%}">
 
     <!-- import font-awesome css files -->
-    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static 'main/font-awesome-4.7.0/css/font-awesome.min.css'%}">
 
     <!-- 配置自定義的base.css -->
-    <link rel="stylesheet" href="{% static 'base.css'%}">
+    <link rel="stylesheet" href="{% static 'main/css/base.css'%}">
     <!-- 連結配置 -->
     {% block link %}{% endblock %}
 
     <!-- import jquery-3 -->
-    <script src="{% static 'jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'jquery-ui-1.12.1.custom/jquery-ui.min.js'%}"></script>
-    <script src="{% static 'bootstrap-4.0.0-beta.2-dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'bootstrap-4.0.0-beta.2-dist/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'bootstrap-4.0.0-beta.2-dist/js/bootstrap.bundle.min.js.map' %}"></script>
-    <script src="{% static 'bootstrap-4.0.0-beta.2-dist/js/bootstrap.min.js.map' %}"></script>
+    <script src="{% static 'main/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'main/jquery-ui-1.12.1.custom/jquery-ui.min.js'%}"></script>
+    <script src="{% static 'main/bootstrap-4.0.0-beta.2-dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap-4.0.0-beta.2-dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap-4.0.0-beta.2-dist/js/bootstrap.bundle.min.js.map' %}"></script>
+    <script src="{% static 'main/bootstrap-4.0.0-beta.2-dist/js/bootstrap.min.js.map' %}"></script>
   </head>
   <body>
     <!-- 引入頁首html檔案 -->
@@ -39,6 +39,6 @@
     {% include 'footer.html'%}
 
     <!-- js檔案配置 -->
-    {% block javascript %}{% endblock%}
+    {% block javascript %}{% endblock %}
   </body>
 </html>
