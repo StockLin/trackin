@@ -37,9 +37,9 @@
       <!-- <a href="#">配對交易</a> -->
       <a href="/forum">討論區</a>
       {% if username %}
-        <a href="/user/logout">登出</a>
+        <a href="/users/logout">登出</a>
       {% else %}
-        <a href="/user/login">登入</a>
+        <a href="/users/login">登入</a>
       {% endif %}
   </div>
 
@@ -54,9 +54,9 @@
     <div class="login_account">
       <!-- 登入登出連結 -->
       {% if username %}
-        <a class="login_account_link" href="/user/logout">登出</a>
+        <a class="login_account_link" href="/users/logout">登出</a>
       {% else %}
-        <a class="login_account_link" href="/user/login">登入</a>
+        <a class="login_account_link" href="/users/login">登入</a>
       {% endif %} /
 
       {% if username %}
@@ -64,7 +64,7 @@
         <a href="" class="login_account_link">會員中心</a>
       {% else %}
         <!-- registration -->
-        <a href="/user/register" class="login_account_link">註冊</a>
+        <a href="/users/register" class="login_account_link">註冊</a>
       {% endif %}
     </div>
     <div class="shopping_bag">
