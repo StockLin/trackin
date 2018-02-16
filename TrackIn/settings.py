@@ -138,3 +138,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # reCAPTCHA secret-key 
 GOOGLE_RECAPTCHA_SECRET_KEY = '6Lf4dz4UAAAAALXufxGn_zd9WVf839V8UZniPAN8'
+
+# email default setting
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'a6898208@gmail.com'
+EMAIL_HOST_PASSWORD = '134354970978067948'
+EMAIL_PORT = 587

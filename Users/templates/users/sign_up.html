@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+<!-- login title -->
+{% block title %}會員註冊{% endblock %}
+<!-- login css files -->
+{% block link %}
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}
+
+<!-- login contnet -->
+{% block content %}
+  <div class="container">
+    <!-- 如果有訊息，印出提示訊息 -->
+    {% for msg in messages %}
+      <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
+    {% endfor %}
+
+    {% if msg %}
+      <h3>{{msg}}</h3>
+    {% endif %}
+
+    <form action="." method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="account">Account</label>
+        <input type="text" name="username" class="form-control" id="account" aria-describedby="emailHelp" placeholder="Account" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <ul id="search_results"></ul>
+      </div>
+      <div class="form-group">
+        <label for="useremail">E-Mail</label>
+        <input type="email" name="useremail" class="form-control" id="useremail" aria-describedby="emailHelp" placeholder="E-Mail" required>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password</label>
+        <input type="password"  name="userPwd" class="form-control" id="pwd" placeholder="Password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="conPwd">Confirm</label>
+        <input type="password"  name="userConPwd" class="form-control" id="conPwd" placeholder="Confirm" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+{{datas}}
+{% endblock %}
+
+
+{% block javascript %}
+
+{% endblock %}
+
+
