@@ -15,6 +15,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
+from Users.models import Profile
 
 # login view definition
 def login(request):
@@ -105,6 +106,8 @@ def sign_up(request):
                 # add new user to the group
                 mem_group.user_set.add(new_user)
 
+                # create user profiles
+                user_profiles = Profile.objects.create(user=new_user)
                 #email activation for accounts
                 current_site = get_current_site(request)
                 mail_subject = 'TrackIn - 點擊以下連結進行帳戶開通.'
