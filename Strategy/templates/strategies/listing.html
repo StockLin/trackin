@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    TrackIn - Strategies
+{% endblock %}
+
+{% block link %}{% endblock %}
+
+<!-- strategies listing content block -->
+{% block content %}
+
+<ul class="nav justify-content-center">
+{% for item in CATELOG_LIST %}
+	<li class="nav-item">
+		<a class="nav-link" href="{% url 'category_url' item %}">{{item}}</a>
+	</li>
+{% endfor %}
+</ul>
+
+<ul class="nav justify-content-center">
+{% for item in LEVEL_LIST %}
+	<li class="nav-item">
+		<a class="nav-link" href="{% url 'listing_url' category item %}">{{item}}</a>
+	</li>
+{% endfor %}
+</ul>
+
+	<ul>
+		{% for item in result_list %}
+			<li>{{item.name}}</li>
+			<li><a href="{{item.files_dir.url}}" download>
+				Download here
+			</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block javascript %}{% endblock %}

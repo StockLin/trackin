@@ -20,7 +20,7 @@ from django.db import models
 
 #     def __str__(self):
 #         return self.name
-
+# path generations with Strategy setting
 def file_path(instance, filename):
     path = 'strategies/{}/{}/{}'.format(instance.category, instance.level, filename)
     return path
