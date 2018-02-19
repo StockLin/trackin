@@ -4,126 +4,45 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-<nav class="logoNav navbar navbar-light justify-content-center" style="background-color: #eeeeee;">
-<!--   <a class="navbar-brand center-align" href="/">
-    <img src="{% static 'images/logo.png' %}" class="d-inline-block align-top" alt="">
-    StocRise
-  </a> -->
 
-  <!-- The overlay -->
-  <div class="headerSidenav">
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn">&times;</a>
-    <!-- sidebar content -->
-      <a href="/" >首頁</a>
-      <a href="#">關於我們</a>
-      <a href="#">最新消息</a>
-      <a lass="headerItems" href="#products"  data-toggle="collapse"  aria-expanded="false" aria-controls="products">策略</a>
-      <div class="collapse" id="products">
-        <a class="detailItems" href="/product/普通型/">普通型</a>
-        <a class="detailItems" href="/product/白金型/">白金型</a>
-      <!--   <a class="detailItems" href="/product/期刊策略/">期刊策略</a>
-        <a class="detailItems" href="/product/第三方策略/">第三方策略</a> -->
-      </div>
-      <a class="headerItems" href="#stockRecom"  data-toggle="collapse"  aria-expanded="false" aria-controls="stockRecom">
-        股票推薦
-      </a>
-      <div class="collapse" id="stockRecom">
-        <a class="detailItems" href="/stock/技術分析/">技術分析</a>
-        <a class="detailItems" href="/stock/高殖利率/">高殖利率</a>
-        <a class="detailItems" href="/stock/基本分析/">基本分析</a>
-        <a class="detailItems" href="/stock/節稅概念/">節稅概念</a>
-      </div>
-      <!-- <a href="#">配對交易</a> -->
-      <a href="/forum">討論區</a>
-      {% if username %}
-        <a href="/users/logout">登出</a>
-      {% else %}
-        <a href="/users/login">登入</a>
-      {% endif %}
-  </div>
-
-  <!-- Use any element to open/show the overlay navigation menu -->
-  <span class="openIcon" ><i class="fa fa-bars fa-2x" aria-hidden="true"></i></span>
-</nav>
-
-
-
-
-<!-- 登入登出、會員中心的div -->
-    <div class="login_account">
-      <!-- 登入登出連結 -->
-      {% if username %}
-        <a class="login_account_link" href="/users/logout">登出</a>
-      {% else %}
-        <a class="login_account_link" href="/users/login">登入</a>
-      {% endif %} /
-
-      {% if username %}
-        <!-- member center -->
-        <a href="" class="login_account_link">會員中心</a>
-      {% else %}
-        <!-- registration -->
-        <a href="/users/sign_up" class="login_account_link">註冊</a>
-      {% endif %}
-    </div>
-    <div class="shopping_bag">
-      <!-- 購物車連結 -->
-      <a href="" class="bag_link">
-        <i class="material-icons">shopping_cart</i>
-        <p>購物車</p>
-
-        <!-- 購物車商品數量 -->
-        <div class="products_num">0</div>
-      </a>
-      <div class="bag_dropdown">
-        <!-- 購物車內容dropdown box -->
-        <div class="bag_inner">
-          <!-- 商品清單 -->
-          <div>
-            <!-- 購物車內的各項商品 -->
-            <!-- 策略連結 -->
-            <a href="" class="products_link">
-              <div><i class="material-icons">clear</i></div>
-              <!-- 策略名稱 -->
-              <p>KD黃金交叉</p>
-              <!-- 購買方式 -->
-              <p>月租</p>
-              <!-- 策略價格 -->
-              <p>$500</p>
-            </a>
-          </div>
-          <!-- 購物車總計 -->
-          <div class="products_bill">
-            <p class="text_left">總計</p>
-            <p>$0</p>
-          </div>
+    <div class="navbar_sec">
+      <nav class="navbar_center">
+        <div class="container">
+            <!-- 首頁連結 -->
+            <a id="name" href="">TrackIn</a>
+          <ul class="main_items">
+            <!-- 個項目連結 -->
+            <li class="items"><a href="">最新消息</a></li>
+            <li class="items service_dropdown">
+              <a href="">服務內容</a>
+              <ul>
+                <li><a href="">交易策略</a></li>
+                <li><a href="">個股推薦</a></li>
+                <li><a href="">配對交易</a></li>
+                <li><a href="">討論園地</a></li>
+              </ul>
+            </li>
+            <li class="items"><a href="">聯絡我們</a></li>
+            <li class="items">
+              {% if username %}
+               <a href="/users/logout/">登出</a> / <a href="">會員中心</a>
+              {% else %}
+               <a href="/users/login/">登入</a> / <a href="/users/sign_up/">註冊</a>
+              {% endif %}
+              
+            </li>
+          </ul>
         </div>
-        <div class="checkout_btn">
-          <!-- 結帳頁面 -->
-          <a href="">結帳</a>
+
+      </nav>
+        <div class="rest_day_alert">
+          <!-- 購物車連結 -->
+          <p><span class="glyphicon glyphicon-time"></span>&nbsp剩餘天數</p>
+
+          <!-- 購物車商品數量 -->
+          <div class="rest_day">0</div>
         </div>
-      </div>
     </div>
 
 
-
-<script>
-  // 設定開啟與隱藏header
-  $(document).ready(function(){
-    /* Open */
-    $('.openIcon').on('click', function(){
-      $('.headerSidenav').css('width', '250px');
-      // $('.content').css('margin-left', '250px');
-      // $(document).css('background-color', 'rgba(0,0,0,0.4)');
-    });
-
-    /* Close */
-    $('.closebtn').on('click', function(){
-      $('.headerSidenav').css('width', '0');
-      // $('.content').css('margin-left', '0');
-      // $(document).css('background-color', 'rgba(0,0,0,0.4)');
-    });
-
-  });
-</script>
+<script src="{% static 'main/js/header.js'%}"></script>

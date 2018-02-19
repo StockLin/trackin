@@ -1,0 +1,52 @@
+footer{
+  background-color: #282F44;
+  padding-top: 50px;
+}
+form{
+  padding: 20px;
+  box-sizing: border-box;
+}
+label{
+  color: #E6AF2E;
+  font-size: 18px;
+  padding: 8px 0px 8px 15px !important;
+}
+input[type="text"], input[type="email"], textarea {
+outline: none;
+box-shadow:none !important;
+border: none !important;
+border-radius: 1rem !important;
+}
+.footer_tit{
+  color: #E6AF2E;
+  font-size: 25px;
+  font-weight: 600;
+  padding: 0px 20px;
+}
+.mail_btn{
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  outline: none;
+}
+.contact_info{
+  padding: 0px 20px;
+  color: white;
+  font-size: 18px;
+  margin: 20px 0px;
+}
+.contact_info p{
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+.fb, .ig, .yt{
+  margin-right: 20px;
+}
+
+.copyright{
+  color: white;
+  text-align: center;
+  padding: 50px 0px;
+  margin: 0px;
+}

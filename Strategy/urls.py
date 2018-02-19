@@ -9,7 +9,7 @@ urlpatterns = [
     # strategy listing
     url(r'^$', listing),
     # strategy listing with condiction categories
-    url(r'^/(\w+)/$', listing, name='category_url'),
+    url(r'^(\w+)/$', listing, name='category_url'),
     # strategy listing with condiction categories and level
-    url(r'^/(\w+)/(\w+)/$', listing, name='listing_url'),
+    url(r'^(\w+)/(\w+)/$', listing, name='listing_url'),
 ]

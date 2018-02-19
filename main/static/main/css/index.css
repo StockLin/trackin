@@ -1,7 +1,7 @@
-* {
-  /*border: 1px solid #000;*/
+{% load static %}
+*{
+  /* border: 1px solid black; */
   font-family: "Josefin Sans", "微軟正黑體", sans-serif;
-  position: relative;
 }
 
 body, html{
@@ -9,223 +9,182 @@ body, html{
   margin: 0;
   width: 100%;
   height: auto;
-  overflow: hidden;
   position: relative;
 }
 
-/*每頁背景*/
-.bg_1, .bg_2, .bg_3, .bg_4, .bg_end{
-  height: 100vh;
-  background-size: cover;
+.col-lg-4, .col-md-4, .col-sm-12{
+  margin: 15px 0px;
+}
+
+
+.bg_img{
+  background-image: url("../images/stock-1863880_1920.jpg");
   background-position: center;
+  background-size: cover;
+  height: 100vh;
   display: block;
-  transition-delay: 0s;
-  animation: moveup 0.5s both;
-  -webkit-animation-timing-function: ease-in; /* Safari 4.0 - 8.0 */
-  animation-timing-function: ease-out;
+  position: relative;
+  z-index: -999;
 }
-
-.bg_1{
-  background-image: url("images/stock-1863880_1920.jpg");
-}
-.bg_2{
-  background-image: url("images/pexels-photo-238118.jpg");
-  display:none;
-}
-.bg_3{
-  background-image: url("images/pexels-photo-159888.jpg");
-  display:none;
-}
-.bg_4{
-  background-image: url("images/g-crescoli-365898.jpg");
-  display:none;
-}
-.bg_end{
-  background-color: #0C1D2D;
-  display:none;
-  text-align: center;
-}
-
-@keyframes moveup {
-  0%{
-    background-position: top;
-    opacity: 0.5;
-  }
-  100%{
-    background-position: center;
-    opacity: 1;
-  }
-}
-@keyframes movedown {
-  0%{
-    background-position: center;
-    opacity: 0.5;
-  }
-  100%{
-    background-position: top;
-    opacity: 1;
-  }
-}
-
-/*每頁fixed的上下框線，border預設為白色*/
-.line{
-  position: fixed;
-  height: 60%;
-  width: 80%;
-  top:50%; left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-}
-.line_darkgray{
-  border-top-color: #1C1A1A;
-  border-bottom-color: #1C1A1A;
-}
-
-/*每頁內文，文字預設為白色*/
-.text{
+.bg_img::before{
+  content: '';
+  display: block;
+  width:100%;
+  height:100%;
   position: absolute;
-  top: 40%;
-  color: #fff;
-  -webkit-animation: text_moveup 0.5s both;
-  animation: text_moveup 0.5s both;
-  -webkit-animation-timing-function: ease-out; /* Safari 4.0 - 8.0 */
-  animation-timing-function: ease-out;
-  display: block;
-}
-.text:hover{
-  text-decoration: none;
-}
-.text_darkgray{
-  color: #1C1A1A;
-}
-.text_darkgray:hover{
-  color: #1C1A1A;
-}
-.text_right{
-  text-align: right;
-  right: 0%;
-}
-
-.title{
-  font-size: 80px;
-  font-weight: 600;
-  margin: 0;
-}
-.p_detail{
-  font-size: 30px;
-  color: #e59900;
-  margin: 0;
-}
-.text_blue{
-  color: #0C1D2D;
+  top: 0;
+  background-color: #282F44;
   opacity: 0.8;
+  z-index: -1;
+}
+
+
+.logo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.sec_header{
+  position: relative;
+}
+.sec_title{
+  font-size: 35px;
+  color: white;
   font-weight: 600;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-@keyframes text_moveup {
-  0%{
-    transform: translateY(10%);
-    opacity: 0;
-  }
-  100%{
-    transform: translateY(-30%);
-    opacity: 1;
-  }
+.sec_bg{
+  width: 100%;
+  z-index: -1;
 }
-@keyframes text_movedown {
-  0%{
-    transform: translateY(-40%);
-    opacity: 0;
-  }
-  100%{
-    transform: translateY(0%);
-    opacity: 1;
-  }
+.sec_content{
+  position: relative;
+  margin: 50px 0px;
+}
+.sec_tit_gp{
+  position: relative;
+}
+.title_bg{
+  width: auto;
+  height: auto;
 }
 
-/*聯絡我們區塊*/
-.end_title{
-  font-size: 30px;
-  font-weight: 600;
-  color: #e59900;
-  margin: 0;
-  padding: 8%;
+.sec_2 ul{
+  padding: 0px;
+  margin: 0px 0px 50px 0px;
 }
-
-/*聯絡資訊*/
-.contact_detail{
-  color: #fff;
-  padding: 5% 10% 10% 20%;
-  text-align: left;
+.sec_2 ul li{
+  list-style-type: none;
+}
+.sec_2 ul li a{
+  display: block;
+  padding: 10px;
+  transition-duration: 0.3s;
+  text-decoration: none;
+  color: rgba(0,0,0,0.8);
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+.sec_2 ul li a:hover{
+  background-color: #C7C7C7;
+}
+.sec_2 ul li a div{
+  display: inline-block;
   font-size: 18px;
 }
-/*社群媒體的icon*/
-
-.media_icon{
-  margin-right: 5px;
+.sec_2 ul li a span{
+  font-size: 15px;
+  margin-right: 20px;
 }
 
-/*聯絡我們表單*/
-input, button, textarea{
-  outline: none;
-  box-shadow: none !important;
-  border: 2px solid #fff !important;
-  border-radius: 0 !important;
+.rank_slider{
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  transform: translate(-50%,-50%);
 }
-button{
-  cursor: pointer;
-}
-textarea{
-  resize: none !important;
-}
-
-.form-control{
-  border-radius: 0 !important;
-  background-color: #0C1D2D !important;
+.rank_num{
+  font-size: 70px;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 50px;
+  text-align: center;
+  margin-right: 10px;
 }
 
-.btn_right{
-  text-align: right;
+.rank_slider ul{
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
 }
-.btn{
-  border: none;
-  border-radius: 0 !important;
-  background-color: #fff !important;
-  color: #0C1D2D;
+.rank_slider ul li{
+  list-style-type: none;
 }
 
-#InputContent::-webkit-scrollbar-track{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: none;
+.rank_slider ul li a{
+  text-decoration: none;
+  color: #282F44;
+  font-size: 25px;
+  margin-right: 20px;
 }
-#InputContent::-webkit-scrollbar{
-  width: 12px;
-  background-color: none;
+.rank_slider ul li span{
+  color: #911b1f;
+  font-size: 35px;
+  font-weight: 600;
 }
-#InputContent::-webkit-scrollbar-thumb{
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #eee;
+.icon_num{
+  font-size: 20px !important;
+  margin-right: 10px;
 }
+
+.service_intro{
+  text-decoration: none !important;
+  text-align: center;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.1);
+  border-radius: 3px;
+  transition-duration: 0.3s;
+}
+.service_intro:hover{
+  background-color: rgba(0,0,0,0.3);
+}
+.service_img{
+  padding: 10px 0px;
+}
+.service_name{
+  color: #282F44;
+  font-size: 22px;
+  font-weight: 600;
+}
+
 
 @media screen and (max-width: 960px) {
-    .title{
-        font-size: 60px;
-    }
-    .p_detail {
-        font-size: 20px;
-    }
+  .sec_title{
+    font-size: 25px;
+  }
+  .title_bg{
+    width: 45%;
+    height: auto;
+  }
 }
 @media screen and (max-width: 480px) {
-    .title{
-        font-size: 40px;
-    }
-    .p_detail {
-        font-size: 10px;
-    }
-    .contact_detail{
-      font-size: 14px;
-    }
+  .logo{
+    width: 60%;
+    height: auto;
+  }
+  .sec_title{
+    font-size: 20px;
+  }
+  .sec_2 ul li a div{
+    font-size: 15px;
+  }
+  .sec_2 ul li a span{
+    font-size: 12px;
+  }
 }

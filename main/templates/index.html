@@ -1,6 +1,143 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}首頁{% endblock %}
-{% block link %}{% endblock %}
+{% block link %}
+	<link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+{% endblock %}
 {% block content %}
-	<h1>Hello welcome to TracIn.</h1>
+  <header>
+    <div class="bg_img">
+      <img class="logo" src="{% static 'main/images/logo.svg' %}">
+    </div>
+  </header>
+
+  <section class="sec_2">
+    <div class="sec_header">
+      <div class="container">
+        <div class="sec_title sec_tit_2">官方策略</div>
+      </div>
+      <img class="sec_bg" src="{% static 'main/images/section_2_bg.svg' %}">
+    </div>
+    <div class="container">
+      <ul>
+        <li><a href="">
+          <span>2018-02-01</span>
+          <div>官方公告</div>
+        </a></li>
+        <li><a href="">
+          <span>2018-02-01</span>
+          <div>官方公告</div>
+        </a></li>
+        <li><a href="">
+          <span>2018-02-01</span>
+          <div>官方公告</div>
+        </a></li>
+        <li><a href="">
+          <span>2018-02-01</span>
+          <div>官方公告</div>
+        </a></li>
+        <li><a href="">
+          <span>2018-02-01</span>
+          <div>官方公告</div>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec_3">
+    <div class="sec_header">
+      <div class="sec_tit_gp">
+        <div class="container">
+          <div class="sec_title">熱門文章</div>
+        </div>
+        <img class="title_bg" src="{% static 'main/images/title_bg_b.svg' %}">
+      </div>
+
+    </div>
+    <div class="sec_content">
+      <img class="sec_bg" src="{% static 'main/images/section_3_bg.svg' %}">
+        <div class="rank_slider">
+          <ul>
+            <li id="content-1">
+              <div class="rank_num">1</div>
+              <a href="">文章標題文章標題文章標題文章標題</a>
+              <span><span class="glyphicon glyphicon-triangle-top icon_num"></span>3259</span>
+            </li>
+            <li id="content-2">
+              <div class="rank_num nd_rank">2</div>
+              <a href="">文章標題文章標題文章標題文章標題</a>
+              <span><span class="glyphicon glyphicon-triangle-top icon_num"></span>2765</span>
+            </li>
+            <li id="content-3">
+              <div class="rank_num rd_rank">3</div>
+              <a href="">文章標題文章標題文章標題文章標題</a>
+              <span><span class="glyphicon glyphicon-triangle-top icon_num"></span>1553</span>
+            </li>
+            <li id="content-4">
+              <div class="rank_num rd_rank">4</div>
+              <a href="">文章標題文章標題文章標題文章標題</a>
+              <span><span class="glyphicon glyphicon-triangle-top icon_num"></span>946</span>
+            </li>
+            <li id="content-5">
+              <div class="rank_num rd_rank">5</div>
+              <a href="">文章標題文章標題文章標題文章標題</a>
+              <span><span class="glyphicon glyphicon-triangle-top icon_num"></span>751</span>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </section>
+  <section class="sec_4">
+    <div class="sec_header">
+      <div class="sec_tit_gp">
+        <div class="container">
+          <div class="sec_title">服務內容</div>
+        </div>
+        <img class="title_bg" src="{% static 'main/images/title_bg_b.svg' %}">
+      </div>
+      <div class="sec_content">
+        <div class="container">
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="service_intro" href="">
+              <img class="service_img" src="{% static 'main/images/service_strate.svg' %}">
+              <div class="service_name">股票交易策略</div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="service_intro" href="">
+              <img class="service_img" src="{% static 'main/images/service_survey.svg' %}">
+              <div class="service_name">風險屬性測驗</div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="service_intro" href="">
+              <img class="service_img" src="{% static 'main/images/service_detect.svg' %}">
+              <div class="service_name">交易紀錄健檢</div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="service_intro" href="">
+              <img class="service_img" src="{% static 'main/images/service_pair.svg' %}">
+              <div class="service_name">配對交易</div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="service_intro" href="">
+              <img class="service_img" src="{% static 'main/images/service_recommend.svg' %}">
+              <div class="service_name">個股推薦</div>
+            </a>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12">
+            <a class="service_intro" href="">
+              <img class="service_img" src="{% static 'main/images/service_forum.svg' %}">
+              <div class="service_name">討論園地</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<script src="{% static 'main/js/index.js' %}"></script>
 {% endblock%}
