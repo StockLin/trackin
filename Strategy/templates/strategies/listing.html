@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block title %}
     TrackIn - Strategies
@@ -10,30 +10,61 @@
 <!-- strategies listing content block -->
 {% block content %}
 
-<ul class="nav justify-content-center">
-{% for item in CATELOG_LIST %}
-	<li class="nav-item">
-		<a class="nav-link" href="{% url 'category_url' item %}">{{item}}</a>
-	</li>
-{% endfor %}
-</ul>
+<nav class="nav nav-pills flex-column flex-sm-row">
+  <a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#">Disabled</a>
+</nav>
+<nav class="nav nav-pills flex-column flex-sm-row">
+  <a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#">Disabled</a>
+</nav>
 
-<ul class="nav justify-content-center">
-{% for item in LEVEL_LIST %}
-	<li class="nav-item">
-		<a class="nav-link" href="{% url 'listing_url' category item %}">{{item}}</a>
-	</li>
-{% endfor %}
-</ul>
 
-	<ul>
+
+<div class="container">
+	<ul class="nav justify-content-center">
+		{% for item in CATELOG_LIST %}
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'category_url' item %}">{{item}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<ul class="nav justify-content-center">
+		{% for item in LEVEL_LIST %}
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'listing_url' category item %}">{{item}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+
+	<div class="row">
+	{% for item in result_list %}
+	  <div class="col-sm-12 col-md-4">
+	    <div class="card border-primary mb-3" style="max-width: 18rem;">
+	      <div class="card-body">
+	        <h5 class="card-title">{{item.name}}</h5>
+	        <p class="card-text">{{item.description}}.</p>
+	        <a href="{% url 'details_url' item.id%}" class="btn btn-primary">Detail</a>
+	      </div>
+	    </div>
+	  </div>
+	 {% endfor %}
+	</div>
+</div>
+<!-- 	<ul>
 		{% for item in result_list %}
 			<li>{{item.name}}</li>
 			<li><a href="{{item.files_dir.url}}" download>
 				Download here
 			</a></li>
 		{% endfor %}
-	</ul>
+	</ul> -->
 {% endblock %}
 
 {% block javascript %}{% endblock %}
