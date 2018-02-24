@@ -1,50 +1,53 @@
 {% extends 'base.html' %}
-
+{% load static %}
 <!-- login title -->
 {% block title %}會員註冊{% endblock %}
 <!-- login css files -->
 {% block link %}
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="{% static 'users/css/signup.css'%}">
 {% endblock %}
 
 <!-- login contnet -->
 {% block content %}
-  <div class="container">
-    <!-- 如果有訊息，印出提示訊息 -->
-    {% for msg in messages %}
-      <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
-    {% endfor %}
-
-    {% if msg %}
-      <h3>{{msg}}</h3>
-    {% endif %}
-
-    <form action="." method="post">
-      {% csrf_token %}
-      <div class="form-group">
-        <label for="account">Account</label>
-        <input type="text" name="username" class="form-control" id="account" aria-describedby="emailHelp" placeholder="Account" required>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        <ul id="search_results"></ul>
+<div class="bg_img"></div>
+<div class="register_sec">
+    <div class="container">
+      <div class="col-lg-4 col-md-6 col-sm-8">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="form_tit">會員登入</div>
+          {% for msg in messages %}
+            <div class="inputfalse_msg">{{msg}}</div>
+          {% endfor %}
+          <div class="form-group">
+            <label class="form_icon" for="username"><span class="glyphicon glyphicon-user"></span></label>
+            <input class="form_input" type="text" placeholder="請輸入帳號" name="username" required>
+          </div>
+          <div class="form-group">
+            <label class="form_icon" for="password"><span class="glyphicon glyphicon-lock"></span></label>
+            <input class="form_input" type="password" placeholder="請輸入密碼" name="userPwd" required>
+          </div>
+          <div class="form-group">
+            <label class="form_icon" for="password"><span class="glyphicon glyphicon-lock"></span></label>
+            <input class="form_input" type="password" placeholder="請再次輸入密碼" name="userConPwd" required>
+          </div>
+          <div class="form-group">
+            <label class="form_icon" for="email"><span class="glyphicon glyphicon-envelope"></span></label>
+            <input class="form_input" type="email" placeholder="請輸入電子郵件" name="useremail" required>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" required>
+            <label class="form_check">我同意服務條款及隱私權政策。</label>
+          </div>
+          <div class="form_footer">
+            <button class="register_btn" type="submit" name="button">確認送出</button>
+          </div>
+          </div>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="useremail">E-Mail</label>
-        <input type="email" name="useremail" class="form-control" id="useremail" aria-describedby="emailHelp" placeholder="E-Mail" required>
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
-      <div class="form-group">
-        <label for="pwd">Password</label>
-        <input type="password"  name="userPwd" class="form-control" id="pwd" placeholder="Password" required>
-      </div>
-
-      <div class="form-group">
-        <label for="conPwd">Confirm</label>
-        <input type="password"  name="userConPwd" class="form-control" id="conPwd" placeholder="Confirm" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
   </div>
-{{datas}}
 {% endblock %}
 
 
