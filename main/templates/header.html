@@ -3,20 +3,21 @@
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<header>
 
-
+    <!-- 名稱有改位置、id改class -->
+    <a id="name" href="">TrackIn</a>
     <div class="navbar_sec">
       <nav class="navbar_center">
         <div class="container">
             <!-- 首頁連結 -->
-            <a id="name" href="">TrackIn</a>
           <ul class="main_items">
             <!-- 個項目連結 -->
             <li class="items"><a href="">最新消息</a></li>
             <li class="items service_dropdown">
               <a href="">服務內容</a>
               <ul>
-                <li><a href="/strategies/">交易策略</a></li>
+                <li><a href="">交易策略</a></li>
                 <li><a href="">個股推薦</a></li>
                 <li><a href="">配對交易</a></li>
                 <li><a href="">討論園地</a></li>
@@ -29,11 +30,9 @@
               {% else %}
                <a href="/users/login/">登入</a> / <a href="/users/sign_up/">註冊</a>
               {% endif %}
-              
             </li>
           </ul>
         </div>
-
       </nav>
         <div class="rest_day_alert">
           <!-- 購物車連結 -->
@@ -44,5 +43,49 @@
         </div>
     </div>
 
+    <!-- hamburger -->
+    <div class="hambg_sidebar">
+      <nav class="nav_bg">
+        <div class="hambg_icon">
+          <span class="icon_line line1"></span>
+          <span class="icon_line line2"></span>
+          <span class="icon_line line3"></span>
+        </div>
+        <div class="hambg_rest_day_alert">
+          <!-- 購物車連結 -->
+          <p><span class="glyphicon glyphicon-time"></span>&nbsp剩餘天數</p>
+
+          <!-- 購物車商品數量 -->
+          <div class="hambg_rest_day">0</div>
+        </div>
+      </nav>
+        <div class="hambg_items">
+            <!-- 首頁連結 -->
+          <ul class="hambg_main_items">
+            <!-- 個項目連結 -->
+            <li><a href="">最新消息</a></li>
+            <li class="hambg_dropdown">
+              <a href="">服務內容</a>
+              <ul class="hambg_sub_items">
+                <li><a href="">交易策略</a></li>
+                <li><a href="">個股推薦</a></li>
+                <li><a href="">配對交易</a></li>
+                <li><a href="">討論園地</a></li>
+              </ul>
+            </li>
+            <li><a href="">聯絡我們</a></li>
+            <li class="log_in_out">
+              {% if username %}
+               <a href="/users/logout/">登出</a> / <a href="">會員中心</a>
+              {% else %}
+               <a href="/users/login/">登入</a> / <a href="/users/sign_up/">註冊</a>
+              {% endif %}
+            </li>
+          </ul>
+        </div>
+
+    </div>
+
+  </header>
 
 <script src="{% static 'main/js/header.js'%}"></script>
