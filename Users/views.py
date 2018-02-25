@@ -49,9 +49,9 @@ def login(request):
             ''' End reCAPTCHA validation '''
 
             if result['success']:
-                messages.success(request, 'New comment added with success!')
+                # messages.success(request, 'New comment added with success!')
                 auth.login(request, user)
-                messages.add_message(request, messages.SUCCESS, '歡迎來到StocRise投資人交易平台.')
+                # messages.add_message(request, messages.SUCCESS, '歡迎來到StocRise投資人交易平台.')
                 return redirect('/')
             else:
                 messages.add_message(request, messages.WARNING, 'Invalid reCAPTCHA. Please try again.')

@@ -34,6 +34,7 @@
           </ul>
         </div>
       </nav>
+      {% if username %}
         <div class="rest_day_alert">
           <!-- 購物車連結 -->
           <p><span class="glyphicon glyphicon-time"></span>&nbsp剩餘天數</p>
@@ -41,6 +42,7 @@
           <!-- 購物車商品數量 -->
           <div class="rest_day">0</div>
         </div>
+      {% endif %}
     </div>
 
     <!-- hamburger -->
@@ -67,7 +69,7 @@
             <li class="hambg_dropdown">
               <a href="">服務內容</a>
               <ul class="hambg_sub_items">
-                <li><a href="">交易策略</a></li>
+                <li><a href="/strategies/">交易策略</a></li>
                 <li><a href="">個股推薦</a></li>
                 <li><a href="">配對交易</a></li>
                 <li><a href="">討論園地</a></li>

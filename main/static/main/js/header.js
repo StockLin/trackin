@@ -60,7 +60,8 @@ $(window).ready(func_nav);
 $(window).resize(func_nav);
 $('.hambg_dropdown').click(function(e){
   e.preventDefault();
-  $('.hambg_sub_items').slideToggle();
+  // $(this).parent().find('.hambg_sub_items');
+  $('.hambg_sub_items').toggle(1000);
 });
 
 });

@@ -29,6 +29,7 @@ body{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  padding-top: 50px;
 }
 .form_tit{
   color: #E6AF2E;
