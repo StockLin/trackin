@@ -15,7 +15,7 @@ class Profile(models.Model):
         ('F', '女'),
         ('O', '其他'),
     )
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     status = models.PositiveIntegerField(default=0, choices=STATUS_CHOICES)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     start_day = models.DateTimeField(auto_now_add=True)

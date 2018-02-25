@@ -38,12 +38,13 @@ def details(request, s_id):
     if request.user.is_authenticated():
         username = request.user.username
 
-    # try:
-    #     # get user profile
-    #     user_profile = Profile.objects.get(user = username)
-    #     user_status = user_profile.status
-    # except:
-    #     pass
+    try:
+        user = User.objects.get(username = username)
+        # get user profile
+        user_profile = Profile.objects.get(user = user)
+        user_status = user_profile.status
+    except:
+        user_status = 0
 
     try:
         results = strategy.objects.get(id=s_id)
@@ -51,7 +52,6 @@ def details(request, s_id):
         if results:
             return render(request, 'strategies/details.html', locals())
         else:
-            hello = 'Failed!'
             return render(request, 'details.html', locals())
             # messages.add_message(request, messages.WARNING, '策略不存在.')
     except:
