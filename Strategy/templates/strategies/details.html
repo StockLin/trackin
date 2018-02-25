@@ -8,41 +8,59 @@
 
 <!-- strategies listing content block -->
 {% block content %}
-  {% for msg in messages %}
+<!--   {% for msg in messages %}
     <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
-  {% endfor %}
+  {% endfor %} -->
 
-  <div class="card">
-	  <div class="card-header">
-	    {{results.name}}aaaaa
+	{% if PASS %}
+	  <div class="card">
+		  <div class="card-header">
+		    {{results.name}}aaaaa
+		  </div>
+		  <div class="card-body">
+		    <h5 class="card-title">{{results.name}}</h5>
+		    <p class="card-text">
+				<ul>
+					<li>{{results.category}}</li>
+					<li>{{results.level}}</li>
+					<li>{{results.name}}</li>
+					<li>{{results.description}}</li>
+					<li>{{results.standard}}</li>
+					<li>{{results.avg_return}}</li>
+					<li>{{results.avg_return}}</li>
+					<li>{{results.total_return}}</li>
+					<li>{{results.max_return}}</li>
+					<li>{{results.total_transa}}</li>
+					<li>{{results.max_loss}}</li>
+					<li>{{results.win_percent}}</li>
+					<li>{{results.like}}</li>
+					<li>{{results.create_date}}</li>
+					<li>{{results.modify_date}}</li>
+					<!-- <li><h3>{{user_profile}}</h3></li> -->
+				</ul>
+		    </p>
+		    <h1>{{user_status}}</h1>
+		    <h1>{{s_level}}</h1>
+		    <a href="{{results.files_dir.url}}" class="btn btn-primary" download>Dowload here!</a>
+		  </div>
 	  </div>
-	  <div class="card-body">
-	    <h5 class="card-title">{{results.name}}</h5>
-	    <p class="card-text">
-			<ul>
-				<li>{{results.category}}</li>
-				<li>{{results.level}}</li>
-				<li>{{results.name}}</li>
-				<li>{{results.description}}</li>
-				<li>{{results.standard}}</li>
-				<li>{{results.avg_return}}</li>
-				<li>{{results.avg_return}}</li>
-				<li>{{results.total_return}}</li>
-				<li>{{results.max_return}}</li>
-				<li>{{results.total_transa}}</li>
-				<li>{{results.max_loss}}</li>
-				<li>{{results.win_percent}}</li>
-				<li>{{results.like}}</li>
-				<li>{{results.create_date}}</li>
-				<li>{{results.modify_date}}</li>
-				<!-- <li><h3>{{user_profile}}</h3></li> -->
-			</ul>
-	    </p>
-	    <h1>{{user_status}}</h1>
-	    <h1>{{results.level}}</h1>
-	    <a href="{{results.files_dir.url}}" class="btn btn-primary" download>Dowload here!</a>
+	{% else %}
+<div class="card">
+		  <div class="card-header">
+		    {{ERROR_MSG_HEAD}}
+		  </div>
+		  <div class="card-body">
+		    <h5 class="card-title">{{ERROR_MSG_HEAD}}</h5>
+		    <p class="card-text">
+				{{ERROR_MSG}}
+		    </p>
+		    <h1>{{user_status}}</h1>
+		    <h1>{{s_level}}</h1>
+		    <a href="/" class="btn btn-primary">返回TrackIn</a>
+		  </div>
 	  </div>
-  </div>
+	{% endif %}
+
 {% endblock %}
 
 {% block javascript %}{% endblock %}
