@@ -21,7 +21,15 @@
           <div class="cate_btn_gp">
             <ul class="cate_btn">
              {% for item in CATELOG_LIST %}
-             	<li><a href="{% url 'category_url' item %}">{{item}}</a></li>
+             	<li>
+             	  <a href="{% url 'category_url' item %}">
+             	  	{% if item == 'bull' %}
+             	  		多頭策略
+             	  	{% else %}
+             	  		空頭策略
+             	  	{% endif %}
+             	  </a>
+             	</li>
 			 {% endfor %}
             </ul>
           </div>
@@ -29,7 +37,19 @@
         <div class="col-md-12 col-lg-8">
           <ul class="member_lv">
           	{% for item in LEVEL_LIST %}
-          		<li><a href="{% url 'listing_url' category item %}">{{item}}</a></li>
+          		<li>
+          		  <a href="{% url 'listing_url' category item %}">
+          		    {% if item == 'normal' %}
+             	  		普通會員
+             	  	{% elif item == 'golden'%}
+             	  		黃金會員
+             	  	{% elif item == 'platinum'%}
+             	  		白金會員
+             	  	{% else %}
+             	  		鑽石會員
+             	  	{% endif %}
+          		  </a>
+          		</li>
           	{% endfor %}
           </ul>
         </div>

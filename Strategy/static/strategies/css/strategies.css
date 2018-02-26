@@ -16,7 +16,7 @@ body{
 }
 
 .strate_sec{
-  padding-top: 80px;
+  padding-top: 150px;
 }
 .card{
   margin-top: 15px;
@@ -75,7 +75,7 @@ body{
 }*/
 
 .cate_btn_gp{
-  border-radius: 2em;
+  border-radius: 3em !important;
   display: inline-block;
   overflow: hidden;
 }
@@ -144,6 +144,9 @@ body{
   .strate_title{
     font-size: 20px;
   }
+  .strate_sec{
+   padding-top: 80px;
+  }
 }
 @media screen and (max-width: 480px) {
   .strate_title{
@@ -152,5 +155,4 @@ body{
   .member_lv li a{
     font-size: 16px;
   }
-
 }
