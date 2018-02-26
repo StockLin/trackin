@@ -5,27 +5,76 @@
     TrackIn - Strategies
 {% endblock %}
 
-{% block link %}{% endblock %}
+{% block link %}
+	<link rel="stylesheet" href="{% static 'strategies/css/strategies.css' %}">
+{% endblock %}
 
 <!-- strategies listing content block -->
 {% block content %}
 
-<nav class="nav nav-pills flex-column flex-sm-row">
-  <a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#">Disabled</a>
-</nav>
-<nav class="nav nav-pills flex-column flex-sm-row">
-  <a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-  <a class="flex-sm-fill text-sm-center nav-link disabled" href="#">Disabled</a>
-</nav>
+
+
+<div class="strate_sec">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-4">
+          <div class="cate_btn_gp">
+            <ul class="cate_btn">
+             {% for item in CATELOG_LIST %}
+             	<li><a href="{% url 'category_url' item %}">{{item}}</a></li>
+			 {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-8">
+          <ul class="member_lv">
+          	{% for item in LEVEL_LIST %}
+          		<li><a href="{% url 'listing_url' category item %}">{{item}}</a></li>
+          	{% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+      	{% for item in result_list %}
+       	 	<div class="col-sm-12 col-md-6 col-lg-4">
+	          <div class="card text-center">
+	            <!-- 放策略細節連結 -->
+	            <a href="{% url 'details_url' item.id%}" class="card-body">
+	              <div class="strate_title">{{item.name}}</div>
+
+	              <div class="strate_body">
+	                <!-- 放策略雷達圖 -->
+	                <div class="strate_radar"></div>
+	                <div class="strate_info_sec">
+		                <div class="strate_info">
+		                  <!-- 放策略平均報酬率資訊 -->
+		                  <div>勝率</div>
+		                  <span>{{item.win_percent}}%</span>
+		                </div>
+		                <div class="strate_info">
+		                  <!-- 放策略平均報酬率資訊 -->
+		                  <div>平均報酬率</div>
+		                  <span>{{item.avg_return}}%</span>
+		                </div>
+		                <div class="strate_info">
+		                  <!-- 放策略平均報酬率資訊 -->
+		                  <div>最大虧損率</div>
+		                  <span>{{item.max_loss}}%</span>
+		                </div>
+	                </div>
+	              </div>
+	            </a>
+	          </div>
+       		 </div>
+		{% endfor %}
+      </div>
+
+
+<!-- 
 
 
 
-<div class="container">
 	<ul class="nav justify-content-center">
 		{% for item in CATELOG_LIST %}
 			<li class="nav-item">
@@ -56,7 +105,9 @@
 	  </div>
 	 {% endfor %}
 	</div>
-</div>
+  </div>
+</div> -->
+
 <!-- 	<ul>
 		{% for item in result_list %}
 			<li>{{item.name}}</li>

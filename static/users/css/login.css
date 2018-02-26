@@ -1,0 +1,125 @@
+*{
+  position: relative;
+}
+body{
+  overflow: hidden;
+}
+.bg_img{
+  background-image: url("../images/pexels-photo-238118.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: block;
+  position: relative;
+  z-index: -999;
+}
+.bg_img::before{
+  content: '';
+  display: block;
+  width:100%;
+  height:100%;
+  position: absolute;
+  top: 0;
+  background-color: #282F44;
+  opacity: 0.85;
+  z-index: -1;
+}
+.login_sec{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-top: 50px;
+}
+.form_tit{
+  color: #E6AF2E;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.inputfalse_msg{
+  border: 1px solid #ff4769;
+  border-radius: 2em;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #ff4769;
+  margin-bottom: 20px;
+  padding: 10px 25px;
+  display: block;
+}
+.form-group{
+  font-size: 0px;
+}
+.form_icon, .form_input{
+  font-size: 18px;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+.form_icon{
+  background-color: rgba(255,255,255,0.2);
+  color: #E6AF2E;
+  padding: 20px 25px 20px 30px !important;
+  margin: 0px;
+  display: inline-block;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+  z-index: 999;
+}
+.form_input{
+  background-color: #282F44;
+  width: 100%;
+  padding: 20px 25px 20px 90px;
+  border: none;
+  outline: none;
+  border-radius: 2em !important;
+  color: white;
+  position: absolute;
+  left: 0px;
+  line-height: 1.5;
+}
+.form_input[type='text']{
+  border-radius: 2em !important;
+}
+.form_footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.notice_gp span{
+  color: white;
+  padding: 5px 0px;
+  letter-spacing: 1px;
+}
+.notice_gp{
+  display: flex;
+  flex-direction: column;
+}
+.notice{
+  color: #E6AF2E;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-block;
+  letter-spacing: 1px;
+  text-decoration: none !important;
+  transition-duration: 0.3s;
+}
+.notice:hover{
+  color: #E6AF2E;
+}
+.login_btn{
+  border: 2px solid rgba(133,115,74,0.8);
+  background-color: rgba(133,115,74,0.8);
+  color: white;
+  padding: 15px 50px;
+  font-size: 18px;
+  border-radius: 1.8em;
+  transition-duration: 0.3s;
+  box-sizing: border-box;
+  outline: none !important;
+}
+.login_btn:hover{
+  background-color: rgba(0,0,0,0);
+}
+
+

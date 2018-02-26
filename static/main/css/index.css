@@ -1,8 +1,4 @@
 {% load static %}
-*{
-  /* border: 1px solid black; */
-  font-family: "Josefin Sans", "微軟正黑體", sans-serif;
-}
 
 body, html{
   padding: 0;
@@ -99,15 +95,21 @@ body, html{
   font-size: 15px;
   margin-right: 20px;
 }
-
+.al_center{
+  text-align: center;
+  margin: 0px 0px 50px 0px;
+}
+.mg_top{
+  margin-top: 50px;
+}
 .rank_slider{
   position: absolute;
-  top: 40%;
-  left: 45%;
-  transform: translate(-50%,-50%);
+  top: 30%;
+  display: block;
+  width: 100%;
 }
 .rank_num{
-  font-size: 70px;
+  font-size: 100px;
   font-weight: 600;
   display: inline-block;
   min-width: 50px;
@@ -121,6 +123,7 @@ body, html{
   margin: 0px;
 }
 .rank_slider ul li{
+  display: inline-block;
   list-style-type: none;
 }
 
@@ -128,12 +131,13 @@ body, html{
   text-decoration: none;
   color: #282F44;
   font-size: 25px;
-  margin-right: 20px;
+  margin: 10px 0px;
 }
 .rank_slider ul li span{
   color: #911b1f;
   font-size: 35px;
   font-weight: 600;
+  margin: 0px 10px;
 }
 .icon_num{
   font-size: 20px !important;
@@ -172,6 +176,20 @@ body, html{
     width: 45%;
     height: auto;
   }
+  .rank_num{
+    font-size: 60px;
+  }
+  .rank_slider{
+    top: 15%;
+  }
+  .rank_slider ul li a{
+    font-size: 20px;
+    display: block;
+  }
+  .rank_slider ul li span{
+    font-size: 30px;
+  }
+
 }
 @media screen and (max-width: 480px) {
   .logo{
@@ -186,5 +204,18 @@ body, html{
   }
   .sec_2 ul li a span{
     font-size: 12px;
+  }
+  .rank_num{
+    font-size: 40px;
+  }
+  .rank_slider{
+    top: 10%;
+  }
+  .rank_slider ul li a{
+    font-size: 18px;
+    display: block;
+  }
+  .rank_slider ul li span{
+    font-size: 25px;
   }
 }
