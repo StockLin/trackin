@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.db.models.signals import post_delete
+from django.dispatch.dispatcher import receiver
 # Create your models here.
 
 # # Strategies category definition
@@ -56,6 +57,12 @@ class strategy(models.Model):
 
     def __str__(self):
         return self.name
+
+# after strategy models objects are deleted, signal are triggered
+@receiver(post_delete, sender=strategy)
+def strategy_delete(sender, instance, **kwargs):
+    # Pass false so FileField doesn't save the model.
+    instance.files_dir.delete(False)
 
 
 
