@@ -13,7 +13,6 @@
 {% block content %}
 
 
-
 <div class="strate_sec">
   <div class="container">
       <div class="row">
@@ -22,7 +21,7 @@
             <ul class="cate_btn">
              {% for item in CATELOG_LIST %}
              	<li>
-             	  <a href="{% url 'category_url' item %}">
+             	  <a class="{% if item == category%}cate_btn_clicked{% endif %}" href="{% url 'category_url' item %}">
              	  	{% if item == 'bull' %}
              	  		多頭策略
              	  	{% else %}
@@ -38,7 +37,7 @@
           <ul class="member_lv">
           	{% for item in LEVEL_LIST %}
           		<li>
-          		  <a href="{% url 'listing_url' category item %}">
+          		  <a class="{% if item == level %}member_lv_clicked{% endif %}" href="{% url 'listing_url' category item %}">
           		    {% if item == 'normal' %}
              	  		普通會員
              	  	{% elif item == 'golden'%}
@@ -55,6 +54,7 @@
         </div>
       </div>
 
+	{% if result_list %}
       <div class="row">
       	{% for item in result_list %}
        	 	<div class="col-sm-12 col-md-6 col-lg-4">
@@ -89,53 +89,10 @@
        		 </div>
 		{% endfor %}
       </div>
+	{% else %}
+		<h1>{{EMPTY_MSG}}</h1>
+	{% endif %}
 
-
-<!-- 
-
-
-
-	<ul class="nav justify-content-center">
-		{% for item in CATELOG_LIST %}
-			<li class="nav-item">
-				<a class="nav-link" href="{% url 'category_url' item %}">{{item}}</a>
-			</li>
-		{% endfor %}
-	</ul>
-
-	<ul class="nav justify-content-center">
-		{% for item in LEVEL_LIST %}
-			<li class="nav-item">
-				<a class="nav-link" href="{% url 'listing_url' category item %}">{{item}}</a>
-			</li>
-		{% endfor %}
-	</ul>
-
-
-	<div class="row">
-	{% for item in result_list %}
-	  <div class="col-sm-12 col-md-4">
-	    <div class="card border-primary mb-3" style="max-width: 18rem;">
-	      <div class="card-body">
-	        <h5 class="card-title">{{item.name}}</h5>
-	        <p class="card-text">{{item.description}}.</p>
-	        <a href="{% url 'details_url' item.id%}" class="btn btn-primary">Detail</a>
-	      </div>
-	    </div>
-	  </div>
-	 {% endfor %}
-	</div>
-  </div>
-</div> -->
-
-<!-- 	<ul>
-		{% for item in result_list %}
-			<li>{{item.name}}</li>
-			<li><a href="{{item.files_dir.url}}" download>
-				Download here
-			</a></li>
-		{% endfor %}
-	</ul> -->
 {% endblock %}
 
 {% block javascript %}{% endblock %}

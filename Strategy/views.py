@@ -19,15 +19,23 @@ def listing(request, category='bull', level='normal'):
     CATELOG_LIST = ['bull', 'bear']
     LEVEL_LIST = ['normal', 'golden', 'platinum', 'diamond']
 
+    EMPTY_MSG = None
+
     # identify wether the category and level parameter exist
     if(category in CATELOG_LIST and level in LEVEL_LIST):
             # getting strategies with selecting category and level
         try:
             result_list = strategy.objects.filter(category=category, level=level)
         except:
+            result_list = None
             messages.add_message(request, messages.WARNING, '.')
     else:
         messages.add_message(request, messages.WARNING, '找不到符合的策略類別.')
+
+    if result_list != None:
+        # result is Empty
+        if not result_list:
+            EMPTY_MSG = '目前沒有上架策略，敬請期待.'
 
     return render(request, 'strategies/listing.html', locals())
 
