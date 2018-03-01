@@ -123,7 +123,7 @@ body{
 /* 切換多空頭頁面後focus按鈕顏色 */
 .cate_btn_clicked{
   background-color: #F5D061;
-  color: #282F44;
+  color: #282F44 !important;
 }
 .member_lv li a{
   background-color: #282F44;
@@ -137,8 +137,8 @@ body{
 }
 /* 切換會員等級頁面後focus按鈕顏色 */
 .member_lv_clicked{
-  background-color: #E6AF2E;
-  color: #282F44;
+  background-color: #E6AF2E !important;
+  color: #282F44 !important;
 }
 @media screen and (max-width: 960px) {
   .strate_title{

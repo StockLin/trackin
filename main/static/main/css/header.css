@@ -121,12 +121,23 @@ header{
 }
 
 /* hamburger css起始 */
+.bg_cover{
+  background-color: rgba(0,0,0,0.4);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  display: none;
+}
 .hambg_sidebar{
   transition-duration: 0.3s;
   display: none;
 }
 .nav_bg{
   transition-duration: 0.3s;
+  position: relative;
 }
 .hambg_icon{
   padding: 20px;
@@ -145,15 +156,14 @@ header{
   margin: 5px 0px;
 }
 .hambg_items{
-  display: none;
-  width: 0px;
   transition-duration: 0.3s;
   background-color: #282F44;
 }
 
+
 @keyframes cover_fullpg {
   0%{
-    width: 0px;
+    width: 50%;
     opacity: 0;
   }
   100%{
@@ -167,20 +177,33 @@ header{
     opacity: 1;
   }
   100%{
-    width: 0px;
+    width: 50%;
     opacity: 0;
   }
 }
-
 .hambg_main_items{
+  display: none;
+  width: 0px;
+  height: auto;
   padding: 0px;
   margin: 0px;
   text-align: center;
 }
-.hambg_main_items li{
+.hambg_main_items li, .hambg_dropdown{
   list-style-type: none;
+  animation: 0.5s comein both;
 }
-.hambg_main_items li a{
+@keyframes comein {
+  0%{
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.hambg_main_items li a, .hambg_dropdown{
   text-decoration: none;
   color: white;
   font-size: 18px;
@@ -189,11 +212,17 @@ header{
   transition-duration: 0.3s;
   display: block;
 }
-.hambg_main_items li a:hover{
+.hambg_dropdown{
+  cursor: pointer;
+}
+.hambg_main_items li a:hover, .hambg_dropdown:hover{
   background-color: #85734a;
 }
 .hambg_sub_items{
   padding: 0px;
+  display: block;
+}
+.hambg_sub_items li{
   display: none;
 }
 .hambg_sub_items li a{
