@@ -7,4 +7,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
+    url(r'^contacts$', views.contacts),
 ]

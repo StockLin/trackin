@@ -12,7 +12,7 @@
     <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
   {% endfor %} -->
 
-	{% if PASS %}
+	<!-- if PASS  -->
 	  <div class="card">
 		  <div class="card-header">
 		    {{results.name}}aaaaa
@@ -41,10 +41,12 @@
 		    </p>
 		    <h1>{{user_status}}</h1>
 		    <h1>{{s_level}}</h1>
-		    <a href="{{results.files_dir.url}}" class="btn btn-primary" download>Dowload here!</a>
+
+
+		    <a {% if PASS %}href="{{results.files_dir.url}}"{% endif %} class="btn btn-primary {% if PASS == None %}btn-warning{% endif %}" download>Dowload here!</a>
 		  </div>
 	  </div>
-	{% else %}
+<!-- 	 else 
 <div class="card">
 		  <div class="card-header">
 		    {{ERROR_MSG_HEAD}}
@@ -59,8 +61,15 @@
 		    <a href="/" class="btn btn-primary">返回TrackIn</a>
 		  </div>
 	  </div>
-	{% endif %}
+	endif -->
 
+<!-- <script>
+	$(document).ready(function(){
+		$('.btn-warning').fadeIn('click', function(){
+
+		});
+	});
+</script> -->
 {% endblock %}
 
 {% block javascript %}{% endblock %}
