@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'main',
     'Users',
     'Strategy',
+    'Forum',
 ]
 
 MIDDLEWARE = [
