@@ -29,14 +29,31 @@ if ($(window).width() < 960){
     if (hambg_icon_show == true){
       $('.nav_bg').css('background-color', '#282F44');
       $('.hambg_icon').css('padding', '30px 20px');
-      $('.hambg_icon').css('padding', '30px 20px');
       $('.line1').css('transform', 'rotate(45deg)');
       $('.line1').css('position', 'absolute');
       $('.line2').css('display', 'none');
       $('.line3').css('transform', 'rotate(-45deg)');
       $('.line3').css('position', 'absolute');
-      $('.hambg_items').css('display', 'block');
-      $('.hambg_items').css('animation', '1s cover_fullpg both');
+      $('.hambg_main_items').css('display', 'block');
+      $('.hambg_main_items').css('animation', '1s cover_fullpg both');
+      $('.bg_cover').css('display', 'block');
+      $('.hambg_sub_items li').css('display', 'none');
+      $(window).click(function(event){
+      if (event.target.className == 'bg_cover'){
+        $('.nav_bg').css('background-color', '');
+        $('.hambg_icon').css('padding', '20px');
+        $('.line1').css('transform', 'rotate(0deg)');
+        $('.line1').css('position', 'relative');
+        $('.line2').css('display', 'block');
+        $('.line3').css('transform', 'rotate(0deg)');
+        $('.line3').css('position', 'relative');
+        $('.hambg_main_items').css('animation', '1s close_fullpg');
+        $('.hambg_main_items').css('display', 'none');
+        $('.bg_cover').css('display', 'none');
+        $('.hambg_sub_items li').css('display', 'none');
+        hambg_icon_show = true;
+      }
+      });
       hambg_icon_show = false;
     }else{
       $('.nav_bg').css('background-color', '');
@@ -46,8 +63,10 @@ if ($(window).width() < 960){
       $('.line2').css('display', 'block');
       $('.line3').css('transform', 'rotate(0deg)');
       $('.line3').css('position', 'relative');
-      $('.hambg_items').css('animation', '1s close_fullpg');
-      $('.hambg_items').css('display', 'none');
+      $('.hambg_main_items').css('animation', '1s close_fullpg');
+      $('.hambg_main_items').css('display', 'none');
+      $('.bg_cover').css('display', 'none');
+      $('.hambg_sub_items li').css('display', 'none');
       hambg_icon_show = true;
     }
   });
@@ -60,8 +79,7 @@ $(window).ready(func_nav);
 $(window).resize(func_nav);
 $('.hambg_dropdown').click(function(e){
   e.preventDefault();
-  // $(this).parent().find('.hambg_sub_items');
-  $('.hambg_sub_items').toggle(1000);
+  $('.hambg_sub_items li').slideToggle();
 });
 
 });

@@ -1,0 +1,249 @@
+/*color:
+blue:#282F44
+yellow:#E6AF2E
+lightyellow:#F5D061
+gray:#C7C7C7
+lightgray:#ECECEC
+darkgold:#85734a
+red:#911b1f
+green:#8cc63f*/
+*{
+  /* border: 1px solid black; */
+  font-family: "Josefin Sans", "微軟正黑體", sans-serif;
+}
+html, body{
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+/* 以上可刪 */
+
+/* .navbar_center, .rest_day_alert p, .hambg_sidebar{
+  background-color: #282F44 !important;
+} */
+
+body{
+  background-attachment: fixed;
+  background-image: url("images/pexels-photo-159888.jpg") !important;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  z-index: 1;
+  background-color: rgba(40, 47, 68, 0.8) !important;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+}
+.strate_detail_sec{
+  padding-top: 120px;
+}
+.strate_detail_title{
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #E6AF2E;
+  display: flex;
+  justify-content: center;
+}
+.strate_detail{
+  font-size: 0px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.8);
+  margin-bottom: 50px;
+  border-radius: 5px;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+.radar_chart_sec{
+  display: flex;
+  width: 50%;
+  height: 100%;
+  margin: 0px;
+  background-color: rgba(255,255,255,0.85);
+  position: relative;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.likeNdownload{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 15px;
+  text-align: center !important;
+  user-select: none;
+}
+.like_btn{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  color: #ECECEC !important;
+  font-weight: 600;
+  padding: 5px 0px;
+  margin-bottom: 5px;
+  background-color: #911b1f;
+  border-radius: 3em;
+  transition-duration: 0.5s;
+}
+.download_btn{
+  display: flex;
+  justify-content: center;
+  color: #911b1f;
+  cursor: pointer;
+}
+
+.download_btn a{
+  width: 100%;
+  color: #ECECEC !important;
+  font-weight: 600;
+  padding: 5px 15px;
+  text-decoration: none !important;
+  background-color: #282F44;
+  border: 2px solid #282F44;
+  display: block;
+  border-radius: 3em;
+  transition-duration: 0.5s;
+}
+
+
+.strate_content{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(40, 47, 68, 0.85);
+  position: relative;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.strate_attr{
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 3px;
+  margin: 25px 25px 0px 25px;
+  color: #E6AF2E;
+}
+.data_table_sec{
+  width: 100%;
+  padding: 15px 25px;
+}
+.data_table{
+  color: white;
+  font-size: 0px;
+}
+.table_row{
+  margin-bottom: 10px;
+}
+.table_head, .table_data{
+  font-size: 18px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 8px 25px;
+}
+.table_head{
+  border-top-left-radius: 3em;
+  border-bottom-left-radius: 3em;
+  border: 2px solid #F5D061;
+  background-color: #F5D061;
+  color: #282F44;
+  font-weight: 600;
+  user-select: none;
+  width: 60%;
+
+}
+.table_data{
+  border-top-right-radius: 3em;
+  border-bottom-right-radius: 3em;
+  border: 2px solid #F5D061;
+  letter-spacing: 1px;
+  width: 40%;
+}
+
+.strate_explain_c{
+  padding: 0px 25px;
+  overflow: hidden;
+}
+.strate_explain_o{
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 25px 25px 0px 25px;
+  overflow: hidden;
+  animation: 1s contentsec_moveup both;
+}
+@keyframes contentsec_moveup {
+  0%{
+    background-color: rgba(245, 208, 97, 0);
+
+  }
+  100%{
+    background-color: rgba(245, 208, 97, 1);
+  }
+}
+
+.strate_explain_title{
+  color: #E6AF2E;
+  font-size: 22px;
+  font-weight: 600;
+  padding: 5px 0px;
+  cursor: pointer;
+  user-select: none;
+}
+.strate_explain p{
+  color: rgba(0,0,0,0.85);
+  font-size: 18px;
+  margin-top: 15px;
+  word-break: break-all;
+  animation: 2s content_fadein both;
+  display: none;
+  user-select: none;
+}
+@keyframes content_fadein {
+  0%{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .strate_detail{
+    flex-direction: column;
+  }
+  .radar_chart_sec, .strate_content{
+    width: 100%;
+  }
+
+}
+@media screen and (max-width: 480px) {
+  .strate_attr{
+    margin: 15px 15px 0px 15px;
+  }
+  .data_table_sec{
+    padding: 15px;
+  }
+  .strate_explain_c{
+    padding: 0px 15px;
+  }
+  .strate_explain_o{
+    padding: 15px 15px 0px 15px;
+  }
+
+}

@@ -3,7 +3,9 @@
 
 {% block title %}{{results.name}}{% endblock %}
 
-{% block link %}{% endblock %}
+{% block link %}
+	<link rel="stylesheet" href="{% static 'strategies/css/strategy_detail.css' %}">
+{% endblock %}
 
 
 <!-- strategies listing content block -->
@@ -12,64 +14,91 @@
     <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
   {% endfor %} -->
 
-	<!-- if PASS  -->
-	  <div class="card">
-		  <div class="card-header">
-		    {{results.name}}aaaaa
-		  </div>
-		  <div class="card-body">
-		    <h5 class="card-title">{{results.name}}</h5>
-		    <p class="card-text">
-				<ul>
-					<li>{{results.category}}</li>
-					<li>{{results.level}}</li>
-					<li>{{results.name}}</li>
-					<li>{{results.description}}</li>
-					<li>{{results.standard}}</li>
-					<li>{{results.avg_return}}</li>
-					<li>{{results.avg_return}}</li>
-					<li>{{results.total_return}}</li>
-					<li>{{results.max_return}}</li>
-					<li>{{results.total_transa}}</li>
-					<li>{{results.max_loss}}</li>
-					<li>{{results.win_percent}}</li>
-					<li>{{results.like}}</li>
-					<li>{{results.create_date}}</li>
-					<li>{{results.modify_date}}</li>
-					<!-- <li><h3>{{user_profile}}</h3></li> -->
-				</ul>
-		    </p>
-		    <h1>{{user_status}}</h1>
-		    <h1>{{s_level}}</h1>
+	    <!-- 會員等級、多空頭、下載連結、上傳日期、策略說明、按讚數 -->
+  <!-- <div class="bg_img"></div> -->
+  <div class="strate_detail_sec">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <div class="strate_detail_title">{{results.name}}</div>
+        </div>
+        <div class="col-sm-12 col-md-6">
 
-
-		    <a {% if PASS %}href="{{results.files_dir.url}}"{% endif %} class="btn btn-primary {% if PASS == None %}btn-warning{% endif %}" download>Dowload here!</a>
-		  </div>
-	  </div>
-<!-- 	 else 
-<div class="card">
-		  <div class="card-header">
-		    {{ERROR_MSG_HEAD}}
-		  </div>
-		  <div class="card-body">
-		    <h5 class="card-title">{{ERROR_MSG_HEAD}}</h5>
-		    <p class="card-text">
-				{{ERROR_MSG}}
-		    </p>
-		    <h1>{{user_status}}</h1>
-		    <h1>{{s_level}}</h1>
-		    <a href="/" class="btn btn-primary">返回TrackIn</a>
-		  </div>
-	  </div>
-	endif -->
-
-<!-- <script>
-	$(document).ready(function(){
-		$('.btn-warning').fadeIn('click', function(){
-
-		});
-	});
-</script> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="strate_detail">
+          <div class="radar_chart_sec">
+            <div class="likeNdownload">
+              <div class="like_btn"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;&nbsp;{{results.like}}</div>
+              <div class="download_btn"><a {% if PASS %}href="{{results.files_dir.url}}"{% endif %} class="btn btn-primary {% if PASS == None %}btn-warning{% endif %}" download=""><span class="glyphicon glyphicon-download-alt"></span>&nbsp;下載策略</a></div>
+            </div>
+            <table class="radar-chart">
+              <thead>
+                <tr>
+                  <th>勝率</th>
+                  <th>總報酬率</th>
+                  <th>平均報酬率</th>
+                  <th>最大報酬率</th>
+                  <th>最大虧損率</th>
+                  <!-- th Another item-->
+                  <!-- th Go crazy-->
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{results.win_percent}}</td>
+                  <td>{{results.total_return}}</td>
+                  <td>{{results.avg_return}}</td>
+                  <td>{{results.max_return}}</td>
+                  <td>{{results.max_loss}}</td>
+                  <!-- td 54-->
+                  <!-- td 95-->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="strate_content">
+            <div class="strate_attr"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;{{results.category}}&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;{{results.level}}</div>
+            <div class="data_table_sec">
+              <div class="data_table">
+                <div class="table_row">
+                  <div class="table_head">勝率</div>
+                  <div class="table_data">{{results.win_percent}}%</div>
+                </div>
+                <div class="table_row">
+                  <div class="table_head">總報酬率</div>
+                  <div class="table_data">{{results.total_return}}%</div>
+                </div>
+                <div class="table_row">
+                  <div class="table_head">平均報酬率</div>
+                  <div class="table_data">{{results.avg_return}}%</div>
+                </div>
+                <div class="table_row">
+                  <div class="table_head">最大報酬率</div>
+                  <div class="table_data">{{results.max_return}}%</div>
+                </div>
+                <div class="table_row">
+                  <div class="table_head">最大虧損率</div>
+                  <div class="table_data">{{results.max_loss}}%</div>
+                </div>
+                <div class="table_row">
+                  <div class="table_head">總交易次數</div>
+                  <div class="table_data">10</div>
+                </div>
+              </div>
+            </div>
+            <div class="strate_explain strate_explain_c">
+              <div class="strate_explain_title"><span class="glyphicon glyphicon-triangle-bottom"></span>&nbsp;策略說明（點此觀看）</div>
+              <p>{{results.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
-{% block javascript %}{% endblock %}
+{% block javascript %}
+    <script src="{% static 'strategies/js/strategy_detail.js' %}"></script>
+{% endblock %}
