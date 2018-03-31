@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- title content -->
+{% block title %}{% endblock %}
+<!-- css loading -->
+{% block link %}{% endblock %}
+
+
+<!-- main content -->
+{% block content %}
+    <!-- 如果有訊息，印出提示訊息 -->
+    {% for msg in messages %}
+      <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
+    {% endfor %}
+
+    <nav class="nav nav-pills nav-justified">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Longer nav link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+<nav class="nav nav-pills nav-justified">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Longer nav link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+<nav class="nav nav-pills nav-justified">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Longer nav link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+
+  {% if contents %}
+    <!-- main forum contents -->
+    <h1>{{contents.title}}</h1><br>
+    <h3>{{contents.user_name}}</h3><br>
+    <h3>{{contents.category.name}}</h3><br>
+    <h3>{{contents.content}}</h3><br>
+    <h3>{{contents.like_num}}</h3><br>
+    <h3>{{contents.create_date}}</h3><br>
+
+    <!-- user messages -->
+    {% for msg in msgs %}
+      <h3>{{msg.user_name}}</h3>
+      <h3>{{msg.message}}</h3>
+      <h3>{{msg.create_date}}</h3>
+    {% endfor %}
+  {% else %}
+    <h1>Not Found</h1>
+  {% endif%}
+
+{% endblock%}
+
+<!-- js loading -->
+{% block javascript %}{% endblock%}

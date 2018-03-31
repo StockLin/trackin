@@ -33,6 +33,6 @@ class message(models.Model):
     forum_id = models.ForeignKey('forum', on_delete = models.CASCADE)
     user_id = models.CharField(max_length = 100)
     user_name = models.CharField(max_length = 100)
-    img_url = models.URLField(max_length=255, null=True)
+    img_url = models.URLField(max_length=255, null=True, blank=True)
     message = models.TextField()
     create_date = models.DateTimeField(auto_now_add = True, blank = True)

@@ -41,3 +41,23 @@ def listing(request, c_id=None):
         current_article = paginator.page(paginator.num_pages)
 
     return render(request, 'Forum/listing.html', locals())
+
+
+def details(request, f_id=None):
+    if request.user.is_authenticated():
+        username = request.user.username
+
+    # get the specific article detail informations
+    try:
+        contents = forum.objects.get(id=f_id)
+    except:
+        contents = None
+        # error message
+        messages.add_message(request, messages.WARNING, '這篇文章不存在!')
+
+    # get the specific article messages
+    if contents is not None:
+        msgs = message.objects.filter(forum_id=f_id)
+
+    return render(request, 'Forum/details.html', locals())
+
