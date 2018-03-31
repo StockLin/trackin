@@ -31,8 +31,10 @@
           <div class="radar_chart_sec">
             <div class="likeNdownload">
               <div class="like_btn"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;&nbsp;{{results.like}}</div>
-              <div class="download_btn"><a {% if PASS %}href="{{results.files_dir.url}}"{% endif %} class="btn btn-primary {% if PASS == None %}btn-warning{% endif %}" download=""><span class="glyphicon glyphicon-download-alt"></span>&nbsp;下載策略</a></div>
+              <div class="download_btn">
+              	<a {% if PASS %}href="{{results.files_dir.url}}"{% endif %} class="{% if PASS == None %}btn-warning{% endif %}" download><span class="glyphicon glyphicon-download-alt"></span>&nbsp;下載策略</a></div>
             </div>
+
             <table class="radar-chart">
               <thead>
                 <tr>
@@ -84,7 +86,7 @@
                 </div>
                 <div class="table_row">
                   <div class="table_head">總交易次數</div>
-                  <div class="table_data">10</div>
+                  <div class="table_data">{{results.total_transa}}</div>
                 </div>
               </div>
             </div>

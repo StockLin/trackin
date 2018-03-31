@@ -108,4 +108,3 @@ def details(request, s_id):
         # messages.add_message(request, messages.WARNING, '策略不存在.')
 
     return render(request, 'strategies/details.html', locals())
-
