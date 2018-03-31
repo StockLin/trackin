@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- title content -->
+{% block title %}{% endblock %}
+<!-- css loading -->
+{% block link %}{% endblock %}
+
+
+<!-- main content -->
+{% block content %}
+    <!-- 如果有訊息，印出提示訊息 -->
+    {% for msg in messages %}
+      <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
+    {% endfor %}
+
+    <nav class="nav nav-pills nav-justified">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Longer nav link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+<nav class="nav nav-pills nav-justified">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Longer nav link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+<nav class="nav nav-pills nav-justified">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Longer nav link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+
+    <table>
+    	<tr>
+    		<td><a href="/forums/">全部</a></td>
+    		{% for cat in head_cat %}
+    			<td><a href="/forums/{{cat.id}}">{{cat.name}}</a></td>
+    		{% endfor %}
+    	</tr>
+    </table>
+
+
+
+    <table>
+    	{% for article in current_article %}
+    		<tr>
+    			<td>{{article.title}}</td>
+    			<td>{{article.create_date}}</td>
+    			<td>{{article.user_id}}</td>
+    			<td>{{article.user_name}}</td>
+    			<td>{{article.like_num}}</td>
+    		</tr>
+    	{% endfor %}
+    </table>
+
+
+
+    <!-- 分頁切換 -->
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <!-- 判斷是否有前一頁 -->
+        {% if current_article.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ current_article.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+        {% endif %}
+        <!-- 頁碼判斷 -->
+        {% for numPage in current_article.paginator.page_range %}
+          {% if current_article.number == numPage %}
+              <li class="page-item active"><a class="page-link" href="#">{{numPage}}</a></li>
+          {% else %}
+              <li class="page-item"><a class="page-link" href="?page={{numPage}}">{{numPage}}</a></li>
+          {% endif %}
+        {% endfor %}
+
+        <!-- 判斷是否有下一頁 -->
+        {% if current_article.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ pages_num.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+{% endblock%}
+
+<!-- js loading -->
+{% block javascript %}{% endblock%}

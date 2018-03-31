@@ -37,6 +37,16 @@ def listing(request, category='bull', level='normal'):
         if not result_list:
             EMPTY_MSG = '目前沒有上架策略，敬請期待.'
 
+        paginator = Paginator(result_list, 6)
+        page = request.GET.get('page')
+        try:
+            current_strate = paginator.page(page)
+        except PageNotAnInteger:
+            current_strate = paginator.page(1)
+        except EmptyPage:
+            current_strate = paginator.page(paginator.num_page)
+
+
     return render(request, 'strategies/listing.html', locals())
 
 

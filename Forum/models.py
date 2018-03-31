@@ -18,7 +18,7 @@ class forum(models.Model):
     user_name = models.CharField(max_length = 100)
     title = models.CharField(max_length = 100)
     content = models.TextField()
-    img_url = models.URLField(max_length=255, null=True)
+    img_url = models.URLField(max_length=255, null=True, blank=True)
     like_num = models.PositiveIntegerField(default = 0)
     unlike_num = models.PositiveIntegerField(default = 0)
     create_date = models.DateTimeField(auto_now_add = True)

@@ -25,4 +25,6 @@ urlpatterns = [
     url(r'^users/', include('Users.urls')),
     # import Strategy url.py
     url(r'^strategies/', include('Strategy.urls')),
+    # import Forum url.py
+    url(r'^forums/', include('Forum.urls')),
 ]
