@@ -40,7 +40,7 @@
           <p><span class="glyphicon glyphicon-time"></span>&nbsp剩餘天數</p>
 
           <!-- 購物車商品數量 -->
-          <div class="rest_day">0</div>
+          <div class="rest_day">{{request.session.remainday}}</div>
         </div>
       {% endif %}
     </div>
@@ -59,7 +59,7 @@
           <p><span class="glyphicon glyphicon-time"></span>&nbsp剩餘天數</p>
 
           <!-- 購物車商品數量 -->
-          <div class="hambg_rest_day">0</div>
+          <div class="hambg_rest_day">{{request.session.remainday}}</div>
         </div>
         {% endif %}
       </nav>

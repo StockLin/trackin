@@ -51,6 +51,9 @@ def login(request):
             if result['success']:
                 # messages.success(request, 'New comment added with success!')
                 auth.login(request, user)
+
+                # get user remained day and saved in session(使用者剩餘天數)
+                request.session["remainday"] = Profile.objects.get(user=user).remain_day
                 # messages.add_message(request, messages.SUCCESS, '歡迎來到StocRise投資人交易平台.')
                 return redirect('/')
             else:
@@ -125,7 +128,7 @@ def sign_up(request):
                 messages.add_message(request, messages.SUCCESS, '註冊成功，請至您的e-mail進行帳戶啟用.') 
             else:
                 messages.add_message(request, messages.WARNING, '請確認密碼與密碼確認是否一致!')
-    return render(request, 'users/sign_up.html/', locals())  
+    return render(request, 'users/sign_up.html', locals())  
 
 
 # email account activation
@@ -143,3 +146,15 @@ def activate(request, uidb64, token):
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+def membership(request):
+    # identify the session whether has already logined
+    if request.user.is_authenticated():
+        username = request.user.username
+        return render(request, 'users/membership.html', locals())
+
+
+    
+
+    return redirect('/') 
