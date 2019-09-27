@@ -34,7 +34,7 @@
           </ul>
         </div>
       </nav>
-      {% if username %}
+      {% if username and request.session.remainday %}
         <div class="rest_day_alert">
           <!-- 購物車連結 -->
           <p><span class="glyphicon glyphicon-time"></span>&nbsp剩餘天數</p>

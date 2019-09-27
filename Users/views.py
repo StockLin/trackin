@@ -52,8 +52,11 @@ def login(request):
                 # messages.success(request, 'New comment added with success!')
                 auth.login(request, user)
 
+                # membership status (會員等級)
+                request.session["status"] = Profile.objects.get(user=user).status
                 # get user remained day and saved in session(使用者剩餘天數)
                 request.session["remainday"] = Profile.objects.get(user=user).remain_day
+
                 # messages.add_message(request, messages.SUCCESS, '歡迎來到StocRise投資人交易平台.')
                 return redirect('/')
             else:

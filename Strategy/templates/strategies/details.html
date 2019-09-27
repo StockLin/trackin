@@ -32,7 +32,8 @@
             <div class="likeNdownload">
               <div class="like_btn"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp;&nbsp;{{results.like}}</div>
               <div class="download_btn">
-              	<a {% if PASS %}href="{{results.files_dir.url}}"{% endif %} class="{% if PASS == None %}btn-warning{% endif %}" download><span class="glyphicon glyphicon-download-alt"></span>&nbsp;下載策略</a></div>
+              	<a {% if PASS %}href="{{results.files_dir.url}}"{% endif %} class="{% if PASS == None %}btn-warning{% endif %}" download><span class="glyphicon glyphicon-download-alt"></span>&nbsp;下載策略</a>
+              </div>
             </div>
 
             <table class="radar-chart">
